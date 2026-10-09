@@ -1,0 +1,291 @@
+
+/* ===================================================
+   1. RESET GLOBAL & BASE
+   =================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background-color: #0f172a;
+    color: #f1f5f9;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ===================================================
+   2. ELEMENTOS MÍDIA & IMAGENS
+   =================================================== */
+img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #38bdf8;
+    box-shadow: 0 4px 20px rgba(56, 189, 248, 0.2);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+img:hover {
+    transform: translateY(-2px);
+    border-color: #0284c7;
+}
+
+/* ===================================================
+   3. TIPOGRAFIA & TEXTOS
+   =================================================== */
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 6px;
+    text-align: center;
+}
+
+p {
+    color: #94a3b8;
+    text-align: center;
+    max-width: 520px;
+    width: 100%;
+    margin-bottom: 14px;
+    font-size: 1rem;
+}
+
+p strong {
+    color: #38bdf8;
+}
+
+h3 {
+    margin-top: 24px;
+    margin-bottom: 14px;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #cbd5e1;
+}
+
+/* ===================================================
+   4. LISTAS E TAGS (HOBBIES)
+   =================================================== */
+ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    max-width: 520px;
+    width: 100%;
+    margin-bottom: 32px;
+}
+
+ul li {
+    background-color: #1e293b;
+    color: #e2e8f0;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: 1px solid #334155;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* ===================================================
+   5. BOTÕES & LINKS
+   =================================================== */
+button {
+    background-color: #0284c7;
+    color: #ffffff;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+    max-width: 320px;
+}
+
+button:hover {
+    background-color: #0369a1;
+    transform: translateY(-2px);
+}
+
+a {
+    display: inline-block;
+    color: #38bdf8;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-top: 18px;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: #7dd3fc;
+    text-decoration: underline;
+}
+
+/* ===================================================
+   SISTEMA DE CURTIDAS
+   =================================================== */
+.like-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.btn-like {
+    background-color: #e11d48;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(225, 29, 72, 0.3);
+}
+
+.btn-like:hover {
+    background-color: #be123c;
+}
+
+.btn-like.liked {
+    background-color: #9f1239;
+    transform: scale(1.05);
+}
+
+#likeCount {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #cbd5e1;
+}
+
+body.light-mode #likeCount {
+    color: #334155;
+}
+
+/* ===================================================
+   6. RODAPÉ
+   =================================================== */
+footer {
+    margin-top: 40px;
+    border-top: 1px solid #1e293b;
+    padding-top: 20px;
+    width: 100%;
+    max-width: 520px;
+}
+
+footer p {
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+/* ===================================================
+   7. MODOS DE TEMA (LIGHT MODE)
+   =================================================== */
+body.light-mode {
+    background-color: #f8fafc;
+    color: #0f172a;
+}
+
+body.light-mode h1 {
+    color: #0f172a;
+}
+
+body.light-mode p {
+    color: #475569;
+}
+
+body.light-mode p strong {
+    color: #0284c7;
+}
+
+body.light-mode h3 {
+    color: #334155;
+}
+
+body.light-mode ul li {
+    background-color: #e2e8f0;
+    color: #1e293b;
+    border-color: #cbd5e1;
+}
+
+body.light-mode footer {
+    border-top-color: #e2e8f0;
+}
+
+body.light-mode footer p {
+    color: #94a3b8;
+}
+
+/* ===================================================
+   8. RESPONSIVIDADE (MEDIA QUERIES)
+   =================================================== */
+
+/* Tablet (Telas até 768px) */
+@media (max-width: 768px) {
+    body {
+        padding: 24px 16px;
+    }
+
+    img {
+        width: 120px;
+        height: 120px;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    p {
+        font-size: 0.95rem;
+    }
+}
+
+/* Celular (Telas até 480px) */
+@media (max-width: 480px) {
+    body {
+        padding: 20px 12px;
+        justify-content: flex-start;
+    }
+
+    img {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 12px;
+    }
+
+    h1 {
+        font-size: 1.4rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+        padding: 0 4px;
+    }
+
+    ul {
+        gap: 6px;
+        margin-bottom: 24px;
+    }
+
+    ul li {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px 20px;
+    }
+
+    footer {
+        margin-top: 24px;
+    }
+}

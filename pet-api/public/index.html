@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apresentação Pessoal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- RF02: Fotografia -->
+    <img src="img/elon-musk.webp" alt="Foto de Perfil do Aluno">
+
+    <!-- RF01: Nome Completo do Aluno -->
+    <h1>Vitor Emanuel Teixeira Linhares</h1>
+
+    <!-- RF03: Curso -->
+    <p><strong>Curso:</strong> Ciência da Computação</p>
+
+    <!-- RF05: Pequena biografia (máximo de 5 linhas) -->
+    <p>
+        Sou um amante da tecnologia. Desde pequeno eu já gostava de mexer com computadores e pirataria... e só me
+        interessei ainda mais pela área. Sou viciado em games, computador e amo minha namorada. Pretendo ser
+        DevOps/MLOps ou Engenheiro de IA.
+    </p>
+
+    <!-- RF04: Pelo menos três hobbies -->
+    <h3>Hobbies</h3>
+    <ul>
+        <li>Programação</li>
+        <li>Jogos</li>
+        <li>Rock</li>
+    </ul>
+
+    <!-- RF06: Botão Entrar em Contato (com mensagem simples ao clicar) -->
+    <button id="meuBotao">Entrar em contato</button>
+
+    <p id="mensagem"></p>
+
+    <br><br>
+
+    <button id="btnTema">Alternar Tema</button>
+    <br>
+    <p>Este é um exemplo de alternância de tema em JavaScript.</p>
+
+    <!-- Botão de Curtida e Contador -->
+    <div class="like-container">
+        <button id="btnLike" class="btn-like">❤️ Curtir</button>
+        <span id="likeCount">0 curtidas</span>
+    </div>
+
+    <!-- RF07: Link para rede social (LinkedIn, GitHub ou Instagram) -->
+    <a href="https://github.com/VitorTLinhares" target="_blank">Acessar meu GitHub</a>
+
+    <!-- RF08: Exibir a data atual no rodapé da página -->
+    <footer>
+        <p>Data atual: 07/08/2026</p>
+    </footer>
+
+    <!-- Parte do JS dentro do body -->
+    <script>
+        
+        // 1. MENSAGEM DO BOTÃO 
+        const botao = document.getElementById('meuBotao');
+        const mensagem = document.getElementById('mensagem');
+
+        botao.addEventListener('click', () => {
+            mensagem.textContent = 'vitorteixeiralinhares2@gmail.com';
+            console.log('O botão foi clicado!');
+        });
+
+        // 2. ALTERNÂNCIA DE TEMA
+        const btnTema = document.getElementById('btnTema');
+
+        const temaSalvo = localStorage.getItem('tema');
+        if (temaSalvo === 'claro') {
+            document.body.classList.add('light-mode');
+        }
+
+        btnTema.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+
+            if (document.body.classList.contains('light-mode')) {
+                localStorage.setItem('tema', 'claro');
+            } else {
+                localStorage.setItem('tema', 'escuro');
+            }
+        });
+
+        // 3. LÓGICA DE CURTIDAS
+        const btnLike = document.getElementById('btnLike');
+        const likeCount = document.getElementById('likeCount');
+
+        let curtidas = parseInt(localStorage.getItem('curtidasCount')) || 0;
+        let jaCurtiu = localStorage.getItem('usuarioCurtiu') === 'true';
+
+        atualizarInterfaceLike();
+
+        btnLike.addEventListener('click', () => {
+            if (jaCurtiu) {
+                curtidas--;
+                jaCurtiu = false;
+            } else {
+                curtidas++;
+                jaCurtiu = true;
+            }
+
+            localStorage.setItem('curtidasCount', curtidas);
+            localStorage.setItem('usuarioCurtiu', jaCurtiu);
+
+            atualizarInterfaceLike();
+        });
+
+        function atualizarInterfaceLike() {
+            likeCount.textContent = `${curtidas} ${curtidas === 1 ? 'curtida' : 'curtidas'}`;
+
+            if (jaCurtiu) {
+                btnLike.classList.add('liked');
+                btnLike.textContent = '❤️ Curtido';
+            } else {
+                btnLike.classList.remove('liked');
+                btnLike.textContent = '🤍 Curtir';
+            }
+        }
+    </script>
+</body>
+
+</html>
